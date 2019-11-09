@@ -71,8 +71,8 @@ class ByteAdpcmEncoder:
 		index += INDEX_TABLE[encoded]
 		if index < 0:
 			index = 0
-		elif index >= len(INDEX_TABLE):
-			index = len(INDEX_TABLE) - 1
+		elif index >= len(STEP_TABLE):
+			index = len(STEP_TABLE) - 1
 		self.index = index
 
 		if isNeg:
@@ -129,8 +129,8 @@ class ByteAdpcmDecoder:
 		index += INDEX_TABLE[nibble & 0x7]
 		if index < 0:
 			index = 0
-		elif index >= len(INDEX_TABLE):
-			index = len(INDEX_TABLE) - 1
+		elif index >= len(STEP_TABLE):
+			index = len(STEP_TABLE) - 1
 
 		self.index = index
 		self.predicted = predicted
